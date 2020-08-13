@@ -8,25 +8,31 @@
 	<body>
 		<canvas id="myChart"></canvas>
 		<script>
-			var ctx = document.getElementById('myChart').getContext('2d');
-			var chart = new Chart(ctx, {
-    			// The type of chart we want to create
-    			type: 'line',
 
-    			// The data for our dataset
-			    data: {
-			        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-			        datasets: [{
-			            label: 'My First dataset',
-			            backgroundColor: '#000000',
-			            borderColor: 'rgb(255, 99, 132)',
-			            data: [0, 10, 5, 2, 20, 30, 45]
-			        }]
-			    },
+			var img = new Image();
+			img.src = 'https://www.purvisculbertlaw.ca/wp-content/uploads/2017/08/coyote-head-2.png';
+			img.onload = function() {
+				var ctx = document.getElementById('myChart').getContext('2d');
+				var fillPattern = ctx.createPattern(img, 'repeat');
+				var chart = new Chart(ctx, {
+	    			// The type of chart we want to create
+	    			type: 'line',
 
-			    // Configuration options go here
-			    options: {}
-			});
+	    			// The data for our dataset
+				    data: {
+				        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+				        datasets: [{
+				            label: 'Coyote Spottings',
+				            backgroundColor: fillPattern,
+				            borderColor: 'rgb(280, 2, 280)',
+				            data: [100, 86, 103, 66, 96, 85, 120]
+				        }]
+				    },
+
+				    // Configuration options go here
+				    options: {}
+				});
+			};
 
 		</script>
 
